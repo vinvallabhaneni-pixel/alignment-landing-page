@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Alignment Assessment | Vibrant Clarity Coaching</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:        #f9f5ef;
+      --warm-white:   #fdf9f4;
+      --sand:         #e8ddd0;
+      --terracotta:   #c4714a;
+      --terracotta-dark: #a8572f;
+      --amber:        #d4943a;
+      --deep:         #2e2419;
+      --mid:          #5a4535;
+      --soft:         #8c7060;
+      --muted:        #b5a496;
+      --serif:        'Cormorant Garamond', Georgia, serif;
+      --sans:         'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--deep);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 3rem;
+      background: rgba(253, 249, 244, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(196, 113, 74, 0.12);
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--deep);
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.65; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 3rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 55%;
+      height: 110%;
+      background: radial-gradient(ellipse at 70% 40%, rgba(212, 148, 58, 0.09) 0%, rgba(196, 113, 74, 0.06) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 1px;
+      background: linear-gradient(to right, transparent, var(--sand), transparent);
+    }
+
+    .hero-left {
+      padding-right: 4rem;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1.8rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .eyebrow::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      width: 1.3rem; height: 1px;
+      background: var(--terracotta);
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--deep);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-sub {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--soft);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      max-width: 34ch;
+    }
+
+    .cta-primary {
+      display: inline-block;
+      background: var(--terracotta);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.4rem;
+      transition: background 0.25s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .cta-primary:hover {
+      background: var(--terracotta-dark);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      margin-top: 1.2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Right side organic shape */
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 1.2s ease both;
+    }
+    .organic-bg {
+      width: 420px;
+      height: 480px;
+      background: linear-gradient(145deg, #f0e8dc 0%, #e8d5bf 60%, #dfc8a8 100%);
+      border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .quote-card {
+      background: rgba(253, 249, 244, 0.88);
+      border-left: 2px solid var(--terracotta);
+      padding: 2rem 2rem;
+      max-width: 280px;
+      position: relative;
+    }
+    .quote-card p {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    .quote-card cite {
+      display: block;
+      margin-top: 1rem;
+      font-family: var(--sans);
+      font-size: 0.73rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-style: normal;
+    }
+
+    /* ── PAIN POINTS ── */
+    .pain {
+      background: var(--deep);
+      padding: 7rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .pain::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 80%; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    }
+
+    .pain-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .pain-intro {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .pain-intro .eyebrow { color: var(--amber); }
+    .pain-intro .eyebrow::before { background: var(--amber); }
+    .pain-intro h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+    .pain-intro h2 em { color: var(--amber); font-style: italic; }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .pain-item {
+      padding: 3rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      transition: background 0.3s;
+    }
+    .pain-item:last-child { border-right: none; }
+    .pain-item:hover { background: rgba(255,255,255,0.03); }
+
+    .pain-num {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(212, 148, 58, 0.2);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+    .pain-item h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.9rem;
+      line-height: 1.3;
+    }
+    .pain-item p {
+      font-size: 0.88rem;
+      color: rgba(249, 245, 239, 0.55);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── PHILOSOPHY ── */
+    .philosophy {
+      padding: 8rem 3rem;
+      background: var(--cream);
+      position: relative;
+    }
+    .phil-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 7rem;
+      align-items: center;
+    }
+    .phil-left .eyebrow { color: var(--terracotta); }
+    .phil-left .eyebrow::before { background: var(--terracotta); }
+    .phil-left h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-weight: 300;
+      color: var(--deep);
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+    .phil-left h2 em { color: var(--terracotta); font-style: italic; }
+
+    .phil-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--terracotta);
+      margin-bottom: 2rem;
+    }
+    .phil-left p {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--mid);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 1.4rem;
+    }
+
+    .phil-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .phil-card {
+      background: var(--warm-white);
+      border-top: 2px solid var(--sand);
+      padding: 2rem 2.2rem;
+      transition: border-color 0.3s;
+    }
+    .phil-card:hover { border-color: var(--terracotta); }
+    .phil-card h4 {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.6rem;
+    }
+    .phil-card p {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* ── WHAT YOU RECEIVE ── */
+    .receive {
+      background: var(--warm-white);
+      padding: 8rem 3rem;
+      position: relative;
+    }
+    .receive-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .receive-inner .eyebrow { color: var(--terracotta); }
+    .receive-inner .eyebrow::before { background: var(--terracotta); display: none; }
+    .receive-inner .eyebrow { padding-left: 0; }
+    .receive-inner h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      font-weight: 300;
+      color: var(--deep);
+      margin-bottom: 1.2rem;
+      line-height: 1.25;
+    }
+    .receive-inner > p {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--soft);
+      margin-bottom: 4rem;
+    }
+
+    .receive-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 5rem;
+      background: var(--sand);
+    }
+    .receive-card {
+      background: var(--warm-white);
+      padding: 3.5rem 3rem;
+      text-align: left;
+    }
+    .receive-icon {
+      font-size: 2rem;
+      margin-bottom: 1.4rem;
+      display: block;
+    }
+    .receive-card h3 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--deep);
+      margin-bottom: 0.8rem;
+    }
+    .receive-card p {
+      font-size: 0.9rem;
+      color: var(--soft);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: linear-gradient(160deg, #c4714a 0%, #a8572f 60%, #8c4520 100%);
+      padding: 8rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.07) 0%, transparent 60%);
+    }
+    .cta-section .eyebrow {
+      color: rgba(255,255,255,0.6);
+      padding-left: 0;
+    }
+    .cta-section .eyebrow::before { display: none; }
+    .cta-section h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .cta-section > p {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 3rem;
+      max-width: 46ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-white {
+      display: inline-block;
+      background: #fff;
+      color: var(--terracotta-dark);
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.1rem 2.8rem;
+      transition: background 0.25s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .cta-white:hover {
+      background: var(--cream);
+      transform: translateY(-1px);
+    }
+    .cta-fine {
+      margin-top: 1.4rem;
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep);
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer .brand {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: rgba(249,245,239,0.5);
+    }
+    footer .back {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(249,245,239,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer .back:hover { color: rgba(249,245,239,0.7); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 7rem 1.5rem 4rem;
+        text-align: center;
+      }
+      .hero-left { padding-right: 0; }
+      .hero-sub { margin: 0 auto 2.5rem; }
+      .hero-right { display: none; }
+      .pain { padding: 5rem 1.5rem; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .pain-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .pain-item:last-child { border-bottom: none; }
+      .philosophy { padding: 5rem 1.5rem; }
+      .phil-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .receive { padding: 5rem 1.5rem; }
+      .receive-cards { grid-template-columns: 1fr; }
+      .cta-section { padding: 5rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://vibrantclaritycoaching.com" class="nav-brand">Vibrant Clarity Coaching</a>
+    <a href="#assessment" class="nav-cta">Take the Assessment</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="eyebrow">Free Alignment Assessment</span>
+      <h1>You're Not Broken.<br>You're <em>Disconnected.</em></h1>
+      <p class="hero-sub">What looks like burnout is often something quieter. A slow drift from the work that once felt like yours.</p>
+      <a href="#assessment" class="cta-primary">Take the Free Alignment Assessment</a>
+      <p class="hero-note">Takes 5 minutes &nbsp;·&nbsp; Free &nbsp;·&nbsp; Private</p>
+    </div>
+    <div class="hero-right">
+      <div class="organic-bg">
+        <div class="quote-card">
+          <p>"Many high performers aren't burned out. They're doing the right things for the wrong reasons."</p>
+          <cite>Sri Vallabhaneni, Vibrant Clarity Coaching</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="pain">
+    <div class="pain-inner">
+      <div class="pain-intro">
+        <span class="eyebrow">What You Might Be Feeling</span>
+        <h2>High performance that leaves you<br><em>strangely empty</em></h2>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-item">
+          <div class="pain-num">01</div>
+          <h3>Excelling, and exhausted by it</h3>
+          <p>Your output is strong. Your reviews are good. The drive that used to pull you forward now feels like a weight at your back. Something has shifted, and you feel it even when you can't name it.</p>
+        </div>
+        <div class="pain-item">
+          <div class="pain-num">02</div>
+          <h3>Your role has quietly become your identity</h3>
+          <p>When someone asks who you are, you tell them what you do. Your values and your job description have gradually merged into something you no longer recognize as a choice.</p>
+        </div>
+        <div class="pain-item">
+          <div class="pain-num">03</div>
+          <h3>Obligation fills the calendar. Choice doesn't.</h3>
+          <p>The priorities set themselves. Somewhere between ambition and autopilot, the question "Is this what I actually want?" stopped getting asked. You kept moving. The question stayed unanswered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+    <div class="phil-inner">
+      <div class="phil-left">
+        <span class="eyebrow">The Co-Active Approach</span>
+        <h2>Alignment begins with<br><em>a different question.</em></h2>
+        <div class="phil-divider"></div>
+        <p>Co-Active coaching starts from a premise that corporate culture rarely voices: you are a whole person who has, over time, been shaped around other people's definitions of success.</p>
+        <p>The work is to surface what already knows what it wants. To listen to what has been waiting for space to speak.</p>
+      </div>
+      <div class="phil-right">
+        <div class="phil-card">
+          <h4>Fulfillment</h4>
+          <p>High performance sustained by meaning. When your work reflects your values, the energy renews itself rather than depleting you.</p>
+        </div>
+        <div class="phil-card">
+          <h4>Balance</h4>
+          <p>A deeper coherence between who you are and how you show up. Professionally and personally. The two were always meant to cohere.</p>
+        </div>
+        <div class="phil-card">
+          <h4>Process</h4>
+          <p>What's present in this moment is often the most important data. Co-Active coaching honors what's alive in you, right now.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU RECEIVE -->
+  <section class="receive" id="assessment">
+    <div class="receive-inner">
+      <span class="eyebrow">What's Included</span>
+      <h2>Your Free Alignment Assessment</h2>
+      <p>A short reflection designed to surface where you are and what might be ready for attention.</p>
+      <div class="receive-cards">
+        <div class="receive-card">
+          <span class="receive-icon">◎</span>
+          <h3>Your Alignment Type</h3>
+          <p>Discover which of four alignment patterns describes your current relationship to your work, and what it typically means for how you move forward.</p>
+        </div>
+        <div class="receive-card">
+          <span class="receive-icon">✦</span>
+          <h3>One Reflection Exercise</h3>
+          <p>A single, focused prompt to sit with over the next few days. One question. Enough space to let it work.</p>
+        </div>
+      </div>
+      <a href="#form" class="cta-primary">Take the Free Alignment Assessment</a>
+      <p class="hero-note" style="margin-top:1rem;">Free. Private. Takes about 5 minutes.</p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section" id="form">
+    <span class="eyebrow">Begin Here</span>
+    <h2>Something in you already knows<br>you're ready.</h2>
+    <p>The assessment takes five minutes. What it opens can last much longer.</p>
+    <a href="https://vibrantclaritycoaching.com/booking" class="cta-white">Take the Free Alignment Assessment</a>
+    <p class="cta-fine">You'll be taken to a short form. No spam. No obligation.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="brand">Vibrant Clarity Coaching &nbsp;&middot;&nbsp; Sri Vallabhaneni</span>
+    <a href="https://vibrantclaritycoaching.com" class="back">← Back to main site</a>
+  </footer>
+
+</body>
+</html>
